@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>title: {{objects.title}}</h1>
+<p>content: {{objects.content}}</p>
+<ul>
+    {% for query_set in queryset%}
+      {% if query_set.title %}
+        <li> <a href="/articles/{{ query_set.id }}/">{{ query_set.title }} - {{ query_set.content }}</a></li>
+       {% endif %}
+    {% endfor %}
+</ul>
+{% endblock content %}
